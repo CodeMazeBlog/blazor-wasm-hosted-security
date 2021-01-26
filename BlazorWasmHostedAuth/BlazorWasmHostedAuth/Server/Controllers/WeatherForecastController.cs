@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BlazorWasmHostedAuth.Server.Controllers
 {
-	[Authorize]
+	[Authorize(Roles = "Administrator")]
 	[ApiController]
 	[Route("[controller]")]
 	public class WeatherForecastController : ControllerBase

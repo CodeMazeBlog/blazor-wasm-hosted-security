@@ -26,7 +26,8 @@ namespace BlazorWasmHostedAuth.Client
 				sp.GetRequiredService<IHttpClientFactory>()
 				.CreateClient("BlazorWasmHostedAuth.ServerAPI"));
 
-			builder.Services.AddApiAuthorization();
+			builder.Services.AddApiAuthorization()
+				.AddAccountClaimsPrincipalFactory<CustomUserFactory>();
 
 			await builder.Build().RunAsync();
 		}
