@@ -47,7 +47,12 @@ namespace BlazorWasmHostedAuth.Server
 			JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Remove("role");
 
 			services.AddAuthentication()
-				.AddIdentityServerJwt();
+				.AddIdentityServerJwt()
+				.AddGoogle(o => 
+				{
+					o.ClientId = Configuration["Authentication:Google:ClientId"];
+					o.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
+				});
 
 			services.AddControllersWithViews();
 			services.AddRazorPages();
