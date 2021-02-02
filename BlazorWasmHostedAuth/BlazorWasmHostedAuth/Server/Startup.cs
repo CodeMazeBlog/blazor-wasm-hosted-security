@@ -52,6 +52,11 @@ namespace BlazorWasmHostedAuth.Server
 				{
 					o.ClientId = Configuration["Authentication:Google:ClientId"];
 					o.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
+				})
+				.AddFacebook(fo => 
+				{ 
+					fo.AppId = Configuration["Authentication:Facebook:AppId"];
+					fo.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
 				});
 
 			services.AddControllersWithViews();
